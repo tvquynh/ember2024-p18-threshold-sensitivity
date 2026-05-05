@@ -1,0 +1,99 @@
+{
+  "baseline_strategy": "uniform",
+  "split": "challenge",
+  "metric": "TPR@1.0%FPR",
+  "per_classifier": {
+    "LightGBM": {
+      "friedman": {
+        "stat": 38.68571428571428,
+        "p_value": 2.7470907326268935e-07,
+        "k": 6,
+        "n": 10
+      },
+      "pairwise": {
+        "binary_high": {
+          "stat": 0.0,
+          "p_value": 0.001953125,
+          "cohens_d": -2.9400161173348,
+          "delta_mean": -0.06614626129827443,
+          "significant": true,
+          "n_pairs": 10,
+          "significant_holm": true
+        },
+        "linear": {
+          "stat": 0.0,
+          "p_value": 0.001953125,
+          "cohens_d": -3.322860967754695,
+          "delta_mean": -0.07504108463434675,
+          "significant": true,
+          "n_pairs": 10,
+          "significant_holm": true
+        },
+        "log": {
+          "stat": 2.0,
+          "p_value": 0.005859375,
+          "cohens_d": -1.1773096903384366,
+          "delta_mean": -0.03557929334428924,
+          "significant": true,
+          "n_pairs": 10,
+          "significant_holm": true
+        },
+        "sqrt": {
+          "stat": 7.0,
+          "p_value": 0.037109375,
+          "cohens_d": -0.8313773405103803,
+          "delta_mean": -0.02898520953163517,
+          "significant": true,
+          "n_pairs": 10,
+          "significant_holm": true
+        },
+        "step_3level": {
+          "stat": 0.0,
+          "p_value": 0.001953125,
+          "cohens_d": -1.389955461869459,
+          "delta_mean": -0.0450493015612161,
+          "significant": true,
+          "n_pairs": 10,
+          "significant_holm": true
+        }
+      }
+    },
+    "XGBoost": {
+      "friedman": {
+        "stat": 27.120000000000005,
+        "p_value": 5.55598717156124e-06,
+        "k": 4,
+        "n": 10
+      },
+      "pairwise": {
+        "linear": {
+          "stat": 0.0,
+          "p_value": 0.001953125,
+          "cohens_d": -4.336285456952403,
+          "delta_mean": -0.10182826622843058,
+          "significant": true,
+          "n_pairs": 10,
+          "significant_holm": true
+        },
+        "log": {
+          "stat": 0.0,
+          "p_value": 0.001953125,
+          "cohens_d": -2.4586087646748678,
+          "delta_mean": -0.06795398520953164,
+          "significant": true,
+          "n_pairs": 10,
+          "significant_holm": true
+        },
+        "sqrt": {
+          "stat": 0.0,
+          "p_value": 0.001953125,
+          "cohens_d": -2.8121460400732983,
+          "delta_mean": -0.07218570254724734,
+          "significant": true,
+          "n_pairs": 10,
+          "significant_holm": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.mypy_cache/
+
+# Virtual envs
+venv/
+env/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Results — sync separately, do NOT commit huge artifacts
+results/**/per_run/
+results/**/*.parquet
+results/**/cache/
+*.log
+nohup.out
+
+# Keep small JSON summaries + figures so reviewers see snapshots
+!results/**/summary.json
+!results/**/snapshot.json
+!results/**/stats.json
+!results/figures/
+!results/tables/

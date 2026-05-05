@@ -1,0 +1,157 @@
+{
+  "baseline_T": 0.065,
+  "split": "challenge",
+  "metric": "TPR@1.0%FPR",
+  "correction": "bonferroni",
+  "per_classifier": {
+    "LightGBM": {
+      "friedman": {
+        "stat": 120.9025731251375,
+        "p_value": 1.3351129781694783e-19,
+        "k": 14,
+        "n": 10
+      },
+      "pairwise": {
+        "baseline_T": 0.065,
+        "correction": "bonferroni",
+        "family_size": 13,
+        "alpha": 0.05,
+        "per_threshold": {
+          "0.0": {
+            "stat": 10.0,
+            "p_value": 0.083984375,
+            "cohens_d": -0.6258950905029537,
+            "delta_mean": -0.022000821692686932,
+            "significant": false,
+            "n_pairs": 10,
+            "significant_corrected": false
+          },
+          "0.02": {
+            "stat": 10.0,
+            "p_value": 0.083984375,
+            "cohens_d": -0.567543869260839,
+            "delta_mean": -0.015078060805258841,
+            "significant": false,
+            "n_pairs": 10,
+            "significant_corrected": false
+          },
+          "0.04": {
+            "stat": 19.0,
+            "p_value": 0.431640625,
+            "cohens_d": -0.38802675690444677,
+            "delta_mean": -0.014009860312243216,
+            "significant": false,
+            "n_pairs": 10,
+            "significant_corrected": false
+          },
+          "0.08": {
+            "stat": 0.0,
+            "p_value": 0.001953125,
+            "cohens_d": 1.8692405628295996,
+            "delta_mean": 0.043036154478225154,
+            "significant": true,
+            "n_pairs": 10,
+            "significant_corrected": true
+          },
+          "0.1": {
+            "stat": 0.0,
+            "p_value": 0.001953125,
+            "cohens_d": 2.012125991726001,
+            "delta_mean": 0.045008216926869335,
+            "significant": true,
+            "n_pairs": 10,
+            "significant_corrected": true
+          },
+          "0.12": {
+            "stat": 0.0,
+            "p_value": 0.001953125,
+            "cohens_d": 2.032233750831501,
+            "delta_mean": 0.047308956450287584,
+            "significant": true,
+            "n_pairs": 10,
+            "significant_corrected": true
+          },
+          "0.15": {
+            "stat": 0.0,
+            "p_value": 0.001953125,
+            "cohens_d": 1.7231257757711176,
+            "delta_mean": 0.040550534100246505,
+            "significant": true,
+            "n_pairs": 10,
+            "significant_corrected": true
+          },
+          "0.18": {
+            "stat": 1.0,
+            "p_value": 0.00390625,
+            "cohens_d": 1.3491305885754585,
+            "delta_mean": 0.03420295809367295,
+            "significant": true,
+            "n_pairs": 10,
+            "significant_corrected": false
+          },
+          "0.2": {
+            "stat": 19.0,
+            "p_value": 0.431640625,
+            "cohens_d": 0.1804899707535294,
+            "delta_mean": 0.006183237469186531,
+            "significant": false,
+            "n_pairs": 10,
+            "significant_corrected": false
+          },
+          "0.25": {
+            "stat": 3.0,
+            "p_value": 0.009765625,
+            "cohens_d": -1.1999901171455165,
+            "delta_mean": -0.05201314708299095,
+            "significant": true,
+            "n_pairs": 10,
+            "significant_corrected": false
+          },
+          "0.3": {
+            "stat": 0.0,
+            "p_value": 0.001953125,
+            "cohens_d": -4.032609237683835,
+            "delta_mean": -0.1049301561216105,
+            "significant": true,
+            "n_pairs": 10,
+            "significant_corrected": true
+          },
+          "0.4": {
+            "stat": 0.0,
+            "p_value": 0.001953125,
+            "cohens_d": -5.186423361835201,
+            "delta_mean": -0.15361544782251438,
+            "significant": true,
+            "n_pairs": 10,
+            "significant_corrected": true
+          },
+          "0.5": {
+            "stat": 0.0,
+            "p_value": 0.001953125,
+            "cohens_d": -11.1939879287212,
+            "delta_mean": -0.27801972062448643,
+            "significant": true,
+            "n_pairs": 10,
+            "significant_corrected": true
+          }
+        }
+      },
+      "thresholds": [
+        0.0,
+        0.02,
+        0.04,
+        0.065,
+        0.08,
+        0.1,
+        0.12,
+        0.15,
+        0.18,
+        0.2,
+        0.25,
+        0.3,
+        0.4,
+        0.5
+      ]
+    }
+  }
+}
