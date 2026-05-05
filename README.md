@@ -1,4 +1,4 @@
-# P18 — Threshold sensitivity and calibration effects in VirusTotal consensus labeling
+# Threshold sensitivity and calibration effects in VirusTotal consensus labeling
 
 **Paper**: *Threshold sensitivity and calibration effects in VirusTotal consensus labeling: a cross-classifier study on EMBER2024*
 **Submitted to**: Journal of Information Security and Applications (Elsevier)
@@ -239,7 +239,7 @@ the dataset's repository for its licensing terms.
 
 ## Contact
 
-- **Corresponding author**: Trong-Thua Huynh (`thuaht@ptit.edu.vn`)
-- **First author**: Van-Quynh Trinh (`quynhtv@ptithcm.edu.vn`)
-- ORCID: 0009-0006-0514-6123 (V.-Q. Trinh) / 0000-0003-3934-1067 (T.-T. Huynh)
+- **First author**: Trong-Thua Huynh (`thuaht@ptit.edu.vn`)
+- **Corresponding author**: Van-Quynh Trinh (`quynhtv@ptithcm.edu.vn`)
+- ORCID: 0000-0003-3934-1067 (T.-T. Huynh) / 0009-0006-0514-6123 (V.-Q. Trinh) 
 - Affiliation: Posts and Telecommunications Institute of Technology, Ho Chi Minh City, Vietnam
