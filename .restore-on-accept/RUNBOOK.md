@@ -1,4 +1,4 @@
-# RUNBOOK — threshold-sensitivity reproducibility artifact
+# RUNBOOK — P18 Threshold Sensitivity (JISA)
 
 Operational runbook for running the full experiment on the 73-core CPU server.
 Self-contained: assumes the paper folder is checked out at
@@ -23,7 +23,7 @@ python -c "import torch; print('torch', torch.__version__, 'threads', torch.get_
 python -c "
 import polars as pl
 for s in ('train','test','challenge'):
-    df = pl.scan_parquet(f'<DATA_DIR>/dataset_{s}.parquet').head(1).collect()
+    df = pl.scan_parquet(f'E:/project_data/parquet_clean-week/ember2024_{s}.parquet').head(1).collect()
     print(s, '->', df.shape, '| cols with detection_ratio?', 'detection_ratio' in df.columns)
 "
 

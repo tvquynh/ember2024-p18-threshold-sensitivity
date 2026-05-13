@@ -1,45 +1,18 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite the accompanying paper."
+message: "Author and title information will be added upon paper acceptance. Until then the artifact remains under peer-review anonymisation."
 type: software
-title: "Threshold sensitivity and calibration effects in VirusTotal consensus labeling on EMBER2024"
+title: "Reproducibility artifact for a manuscript under peer review"
 authors:
-  - family-names: Huynh
-    given-names: Trong-Thua
-    orcid: "https://orcid.org/0000-0003-3934-1067"
-    affiliation: "Posts and Telecommunications Institute of Technology, Vietnam"
-    email: thuaht@ptit.edu.vn
-  - family-names: Trinh
-    given-names: Van-Quynh
-    orcid: "https://orcid.org/0009-0006-0514-6123"
-    affiliation: "Posts and Telecommunications Institute of Technology, Vietnam"
-    email: quynhtv@ptithcm.edu.vn
-  - family-names: Huynh
-    given-names: De-Thu
-    orcid: "https://orcid.org/0000-0002-1227-0281"
-    affiliation: "The Saigon International University, Vietnam"
-    email: huynhdethu@siu.edu.vn
-  - family-names: Le
-    given-names: Ngoc-Hieu
-    affiliation: "Posts and Telecommunications Institute of Technology, Vietnam"
-    email: hieuln@ptithcm.edu.vn
+  - given-names: "Anonymised"
+    family-names: "Pending peer review"
 repository-code: "https://github.com/tvquynh/ember2024-p18-threshold-sensitivity"
 license: MIT
 identifiers:
   - type: doi
     value: 10.5281/zenodo.19868109
-    description: "Zenodo archive of the JISA submission v1 release."
-preferred-citation:
-  type: article
-  authors:
-    - family-names: Huynh
-      given-names: Trong-Thua
-    - family-names: Trinh
-      given-names: Van-Quynh
-    - family-names: Huynh
-      given-names: De-Thu
-    - family-names: Le
-      given-names: Ngoc-Hieu
-  title: "Threshold sensitivity and calibration effects in VirusTotal consensus labeling: a cross-classifier study on EMBER2024"
-  journal: "Journal of Information Security and Applications"
-  year: 2026
-  notes: "under review"
+    description: "Zenodo archive of the frozen submission release."
+keywords:
+  - reproducibility
+  - threshold sensitivity
+  - calibration
+  - peer review
