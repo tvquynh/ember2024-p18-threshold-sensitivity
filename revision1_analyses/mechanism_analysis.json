@@ -1,0 +1,456 @@
+{
+  "run_tag": "revision1",
+  "diagnostics": [
+    {
+      "T": 0.065,
+      "n_malware_retained": 1154249,
+      "n_benign": 1170000,
+      "mal_ben_ratio": 0.9865,
+      "ft_composition": {
+        "win32": 0.6669,
+        "win64": 0.2224,
+        "dot_net": 0.1107
+      },
+      "median_detection_ratio_retained": 0.6883,
+      "mean_detection_ratio_retained": 0.5889,
+      "near_boundary_frac_[T, T+0.05)": 0.0893,
+      "detection_ratio_histogram_10bins": {
+        "edges": [
+          0.065,
+          0.159,
+          0.252,
+          0.345,
+          0.439,
+          0.532,
+          0.626,
+          0.72,
+          0.813,
+          0.907,
+          1.0
+        ],
+        "counts": [
+          143665,
+          56402,
+          64806,
+          73774,
+          69068,
+          78898,
+          143287,
+          212198,
+          305249,
+          6902
+        ]
+      }
+    },
+    {
+      "T": 0.08,
+      "n_malware_retained": 1104323,
+      "n_benign": 1170000,
+      "mal_ben_ratio": 0.9439,
+      "ft_composition": {
+        "win32": 0.6693,
+        "win64": 0.2207,
+        "dot_net": 0.1099
+      },
+      "median_detection_ratio_retained": 0.7013,
+      "mean_detection_ratio_retained": 0.6123,
+      "near_boundary_frac_[T, T+0.05)": 0.0631,
+      "detection_ratio_histogram_10bins": {
+        "edges": [
+          0.08,
+          0.172,
+          0.264,
+          0.356,
+          0.448,
+          0.54,
+          0.632,
+          0.724,
+          0.816,
+          0.908,
+          1.0
+        ],
+        "counts": [
+          103372,
+          54318,
+          66066,
+          74196,
+          65694,
+          82586,
+          145317,
+          229587,
+          279816,
+          3371
+        ]
+      }
+    },
+    {
+      "T": 0.1,
+      "n_malware_retained": 1073392,
+      "n_benign": 1170000,
+      "mal_ben_ratio": 0.9174,
+      "ft_composition": {
+        "win32": 0.6714,
+        "win64": 0.219,
+        "dot_net": 0.1096
+      },
+      "median_detection_ratio_retained": 0.7105,
+      "mean_detection_ratio_retained": 0.6274,
+      "near_boundary_frac_[T, T+0.05)": 0.0516,
+      "detection_ratio_histogram_10bins": {
+        "edges": [
+          0.1,
+          0.19,
+          0.28,
+          0.37,
+          0.46,
+          0.55,
+          0.64,
+          0.73,
+          0.82,
+          0.91,
+          1.0
+        ],
+        "counts": [
+          84043,
+          50546,
+          69954,
+          69100,
+          65153,
+          81624,
+          151533,
+          233100,
+          266795,
+          1544
+        ]
+      }
+    },
+    {
+      "T": 0.12,
+      "n_malware_retained": 1042914,
+      "n_benign": 1170000,
+      "mal_ben_ratio": 0.8914,
+      "ft_composition": {
+        "win32": 0.6759,
+        "win64": 0.2158,
+        "dot_net": 0.1083
+      },
+      "median_detection_ratio_retained": 0.72,
+      "mean_detection_ratio_retained": 0.6426,
+      "near_boundary_frac_[T, T+0.05)": 0.0377,
+      "detection_ratio_histogram_10bins": {
+        "edges": [
+          0.12,
+          0.208,
+          0.296,
+          0.384,
+          0.472,
+          0.56,
+          0.648,
+          0.736,
+          0.824,
+          0.912,
+          1.0
+        ],
+        "counts": [
+          64285,
+          49090,
+          71252,
+          67070,
+          64343,
+          84552,
+          144179,
+          235712,
+          260911,
+          1520
+        ]
+      }
+    },
+    {
+      "T": 0.15,
+      "n_malware_retained": 1017998,
+      "n_benign": 1170000,
+      "mal_ben_ratio": 0.8701,
+      "ft_composition": {
+        "win32": 0.6793,
+        "win64": 0.2128,
+        "dot_net": 0.1079
+      },
+      "median_detection_ratio_retained": 0.7273,
+      "mean_detection_ratio_retained": 0.655,
+      "near_boundary_frac_[T, T+0.05)": 0.0339,
+      "detection_ratio_histogram_10bins": {
+        "edges": [
+          0.15,
+          0.235,
+          0.32,
+          0.405,
+          0.49,
+          0.575,
+          0.66,
+          0.745,
+          0.83,
+          0.915,
+          1.0
+        ],
+        "counts": [
+          53942,
+          52614,
+          68844,
+          65064,
+          62233,
+          91181,
+          145280,
+          250874,
+          226446,
+          1520
+        ]
+      }
+    },
+    {
+      "T": 0.18,
+      "n_malware_retained": 996732,
+      "n_benign": 1170000,
+      "mal_ben_ratio": 0.8519,
+      "ft_composition": {
+        "win32": 0.6817,
+        "win64": 0.2104,
+        "dot_net": 0.1079
+      },
+      "median_detection_ratio_retained": 0.7333,
+      "mean_detection_ratio_retained": 0.6655,
+      "near_boundary_frac_[T, T+0.05)": 0.0296,
+      "detection_ratio_histogram_10bins": {
+        "edges": [
+          0.18,
+          0.262,
+          0.344,
+          0.426,
+          0.508,
+          0.59,
+          0.672,
+          0.754,
+          0.836,
+          0.918,
+          1.0
+        ],
+        "counts": [
+          47925,
+          59431,
+          63298,
+          62571,
+          60720,
+          100248,
+          144669,
+          252712,
+          203817,
+          1341
+        ]
+      }
+    },
+    {
+      "T": 0.2,
+      "n_malware_retained": 983517,
+      "n_benign": 1170000,
+      "mal_ben_ratio": 0.8406,
+      "ft_composition": {
+        "win32": 0.6832,
+        "win64": 0.2091,
+        "dot_net": 0.1078
+      },
+      "median_detection_ratio_retained": 0.7368,
+      "mean_detection_ratio_retained": 0.6719,
+      "near_boundary_frac_[T, T+0.05)": 0.0275,
+      "detection_ratio_histogram_10bins": {
+        "edges": [
+          0.2,
+          0.28,
+          0.36,
+          0.44,
+          0.52,
+          0.6,
+          0.68,
+          0.76,
+          0.84,
+          0.92,
+          1.0
+        ],
+        "counts": [
+          44714,
+          59649,
+          63552,
+          59459,
+          64086,
+          96413,
+          139418,
+          263155,
+          191807,
+          1264
+        ]
+      }
+    },
+    {
+      "T": 0.25,
+      "n_malware_retained": 956438,
+      "n_benign": 1170000,
+      "mal_ben_ratio": 0.8175,
+      "ft_composition": {
+        "win32": 0.6859,
+        "win64": 0.2062,
+        "dot_net": 0.1078
+      },
+      "median_detection_ratio_retained": 0.7467,
+      "mean_detection_ratio_retained": 0.6845,
+      "near_boundary_frac_[T, T+0.05)": 0.0322,
+      "detection_ratio_histogram_10bins": {
+        "edges": [
+          0.25,
+          0.325,
+          0.4,
+          0.475,
+          0.55,
+          0.625,
+          0.7,
+          0.775,
+          0.85,
+          0.925,
+          1.0
+        ],
+        "counts": [
+          51453,
+          57448,
+          60743,
+          52198,
+          66648,
+          111545,
+          129813,
+          278750,
+          147779,
+          61
+        ]
+      }
+    },
+    {
+      "T": 0.3,
+      "n_malware_retained": 925658,
+      "n_benign": 1170000,
+      "mal_ben_ratio": 0.7912,
+      "ft_composition": {
+        "win32": 0.6907,
+        "win64": 0.2015,
+        "dot_net": 0.1078
+      },
+      "median_detection_ratio_retained": 0.7532,
+      "mean_detection_ratio_retained": 0.6981,
+      "near_boundary_frac_[T, T+0.05)": 0.0407,
+      "detection_ratio_histogram_10bins": {
+        "edges": [
+          0.3,
+          0.37,
+          0.44,
+          0.51,
+          0.58,
+          0.65,
+          0.72,
+          0.79,
+          0.86,
+          0.93,
+          1.0
+        ],
+        "counts": [
+          56809,
+          53247,
+          52095,
+          53883,
+          72968,
+          112307,
+          145543,
+          279264,
+          99481,
+          61
+        ]
+      }
+    },
+    {
+      "T": 0.4,
+      "n_malware_retained": 847537,
+      "n_benign": 1170000,
+      "mal_ben_ratio": 0.7244,
+      "ft_composition": {
+        "win32": 0.7111,
+        "win64": 0.1851,
+        "dot_net": 0.1039
+      },
+      "median_detection_ratio_retained": 0.7763,
+      "mean_detection_ratio_retained": 0.7303,
+      "near_boundary_frac_[T, T+0.05)": 0.0487,
+      "detection_ratio_histogram_10bins": {
+        "edges": [
+          0.4,
+          0.46,
+          0.52,
+          0.58,
+          0.64,
+          0.7,
+          0.76,
+          0.82,
+          0.88,
+          0.94,
+          1.0
+        ],
+        "counts": [
+          47788,
+          43606,
+          46519,
+          56652,
+          96569,
+          100177,
+          187887,
+          217085,
+          51254,
+          0
+        ]
+      }
+    },
+    {
+      "T": 0.5,
+      "n_malware_retained": 772847,
+      "n_benign": 1170000,
+      "mal_ben_ratio": 0.6606,
+      "ft_composition": {
+        "win32": 0.7325,
+        "win64": 0.1706,
+        "dot_net": 0.0969
+      },
+      "median_detection_ratio_retained": 0.7895,
+      "mean_detection_ratio_retained": 0.7577,
+      "near_boundary_frac_[T, T+0.05)": 0.0495,
+      "detection_ratio_histogram_10bins": {
+        "edges": [
+          0.5,
+          0.55,
+          0.6,
+          0.65,
+          0.7,
+          0.75,
+          0.8,
+          0.85,
+          0.9,
+          0.95,
+          1.0
+        ],
+        "counts": [
+          38251,
+          41130,
+          56810,
+          80253,
+          80584,
+          115608,
+          212371,
+          139889,
+          7951,
+          0
+        ]
+      }
+    }
+  ]
+}
