@@ -158,7 +158,12 @@ def make_figure_5(diagnostics: list[dict], mal_df: pl.DataFrame, out_pdf: Path):
     ax.set_xlabel("Detection ratio $r$")
     ax.set_ylabel("Density (retained malware)")
     ax.set_title("(c) Detection-ratio distribution shift")
-    ax.legend(fontsize=8, loc="upper right")
+    # The distributions peak near r = 0.85, so an upper-right legend would sit
+    # on top of the peak. Park it upper-left, over the empty mid-range, and add
+    # headroom so it never touches the curves.
+    ax.set_ylim(top=ax.get_ylim()[1] * 1.30)
+    ax.legend(fontsize=7.5, loc="upper left", framealpha=0.92,
+              borderpad=0.4, labelspacing=0.3, handlelength=1.6)
     ax.grid(True, alpha=0.3)
 
     # Panel (d): difficulty proxies
@@ -177,7 +182,11 @@ def make_figure_5(diagnostics: list[dict], mal_df: pl.DataFrame, out_pdf: Path):
     ax.set_title("(d) Retained-sample difficulty proxies")
     ax.grid(True, alpha=0.3)
     ax.axvline(0.065, color="black", lw=0.8, ls=":", alpha=0.6)
-    ax.legend(loc="center left", fontsize=8)
+    # Both retained-ratio curves rise to the top right, so the lower-right
+    # corner is the only region no curve crosses.
+    ax.set_ylim(bottom=ax.get_ylim()[0] - 0.02)
+    ax.legend(loc="lower right", fontsize=7.5, framealpha=0.92,
+              borderpad=0.4, labelspacing=0.3, handlelength=1.6)
 
     fig.tight_layout()
     fig.subplots_adjust(wspace=0.35, hspace=0.35)
