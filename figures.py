@@ -225,7 +225,7 @@ def figure_variance(summary_path_coarse: Path,
 
 # ── Figure 4: Calibration reliability diagram (LightGBM × T sweep) ───────────
 def figure_calibration(summary_path_fine: Path, out_pdf: Path,
-                        thresholds_to_show=(0.0, 0.065, 0.10, 0.20, 0.50),
+                        thresholds_to_show=(0.065, 0.10, 0.20, 0.50),
                         split: str = "challenge"):
     """Reliability diagram for LGBM at selected T values + ECE bar chart."""
     import matplotlib.pyplot as plt

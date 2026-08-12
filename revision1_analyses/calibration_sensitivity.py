@@ -144,25 +144,30 @@ def analyze_all():
 
 
 def make_figure_6(rows, out_pdf):
-    fig, axes = plt.subplots(1, 2, figsize=(10.0, 4.0))
+    fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.0))
     T_arr = np.array([float(r["T"]) for r in rows])
 
     ax = axes[0]
-    for k, name, color, marker in [
-        ("ECE_10eq", "ECE (10 equal-width, current paper)", BLUE_PALETTE[0], "o"),
-        ("ECE_adapt_5", "ECE (5 adaptive-quantile)", BLUE_PALETTE[1], "s"),
-        ("ECE_adapt_15", "ECE (15 adaptive-quantile)", BLUE_PALETTE[2], "^"),
-        ("ECE_class_freq_adj", "ECE (class-freq. adjusted)", "#C0504D", "D"),
-    ]:
-        y = np.array([r[k] for r in rows])
-        ax.plot(T_arr, y, marker + "-", color=color, lw=1.5, ms=5, label=name)
+    # Plot equal-width ECE on left axis, class-frequency-adjusted on right axis
+    # (magnitudes differ by ~10x so a shared axis would flatten the equal-width curve).
+    y_ew = np.array([r["ECE_10eq"] for r in rows])
+    y_cfa = np.array([r["ECE_class_freq_adj"] for r in rows])
+    ax.plot(T_arr, y_ew, "o-", color=BLUE_PALETTE[0], lw=1.5, ms=5,
+            label="ECE (10 equal-width, left axis)")
+    ax2 = ax.twinx()
+    ax2.plot(T_arr, y_cfa, "D-", color="#C0504D", lw=1.5, ms=5,
+             label="ECE (class-freq. adjusted, right axis)")
     ax.set_xlabel("Threshold $T$")
-    ax.set_ylabel("Calibration error")
-    ax.set_title("(a) ECE robustness across binning + class-weight schemes")
-    ax.axvspan(0.08, 0.18, alpha=0.10, color=BLUE_PALETTE[3], label="sweet zone")
+    ax.set_ylabel("ECE (equal-width, 10 bins)", color=BLUE_PALETTE[0])
+    ax2.set_ylabel("ECE (class-frequency-adjusted)", color="#C0504D")
+    ax.set_title("(a) Equal-width vs class-frequency-adjusted ECE")
+    ax.axvspan(0.08, 0.18, alpha=0.10, color=BLUE_PALETTE[3])
     ax.axvline(0.065, color="black", lw=0.8, ls=":", alpha=0.6)
     ax.grid(True, alpha=0.3)
-    ax.legend(fontsize=7, loc="upper right")
+    # Combined legend
+    lines1, labels1 = ax.get_legend_handles_labels()
+    lines2, labels2 = ax2.get_legend_handles_labels()
+    ax.legend(lines1 + lines2, labels1 + labels2, fontsize=7, loc="upper right")
 
     ax = axes[1]
     reliability = np.array([r["brier_reliability"] for r in rows])
@@ -180,7 +185,7 @@ def make_figure_6(rows, out_pdf):
     ax.legend(fontsize=8, loc="center right")
 
     fig.tight_layout()
-    fig.subplots_adjust(wspace=0.30)
+    fig.subplots_adjust(wspace=0.52)
     fig.savefig(out_pdf, bbox_inches="tight")
     fig.savefig(out_pdf.with_suffix(".png"), bbox_inches="tight", dpi=150)
     plt.close(fig)

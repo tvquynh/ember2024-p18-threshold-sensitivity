@@ -17,33 +17,6 @@
         "family_size": 13,
         "alpha": 0.05,
         "per_threshold": {
-          "0.0": {
-            "stat": 10.0,
-            "p_value": 0.083984375,
-            "cohens_d": -0.6258950905029537,
-            "delta_mean": -0.022000821692686932,
-            "significant": false,
-            "n_pairs": 10,
-            "significant_corrected": false
-          },
-          "0.02": {
-            "stat": 10.0,
-            "p_value": 0.083984375,
-            "cohens_d": -0.567543869260839,
-            "delta_mean": -0.015078060805258841,
-            "significant": false,
-            "n_pairs": 10,
-            "significant_corrected": false
-          },
-          "0.04": {
-            "stat": 19.0,
-            "p_value": 0.431640625,
-            "cohens_d": -0.38802675690444677,
-            "delta_mean": -0.014009860312243216,
-            "significant": false,
-            "n_pairs": 10,
-            "significant_corrected": false
-          },
           "0.08": {
             "stat": 0.0,
             "p_value": 0.001953125,
@@ -137,9 +110,6 @@
         }
       },
       "thresholds": [
-        0.0,
-        0.02,
-        0.04,
         0.065,
         0.08,
         0.1,

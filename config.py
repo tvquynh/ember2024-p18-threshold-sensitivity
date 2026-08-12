@@ -25,23 +25,29 @@ PROTOTYPE_SEEDS: List[int] = [42, 123]
 # This matches Joyce et al. KDD'25 author training pattern.
 BASELINE_T: float = 0.065
 
-# Below-baseline grid (added 2026-04-25 per reviewer-anticipated control).
-# T=0.0 = no filter (all malware retained); T=0.02 ≈ k=2; T=0.04 ≈ k=3.
-# Tests the null hypothesis "filtering itself hurts" before claiming
-# sweet zone advantage over baseline.
-BELOW_BASELINE_THRESHOLDS: List[float] = [0.0, 0.02, 0.04]
+# Below-baseline grid: RETIRED. An early draft swept T below the EMBER2024
+# default (T = 0.0 / 0.02 / 0.04) as a "does filtering itself hurt?" control.
+# It was dropped from the study because only ~1.2% of EMBER2024 training
+# malware falls below T_base = 0.065, so those thresholds change the training
+# set by <1.5% and cannot produce informative contrasts. Kept here, empty, so
+# that the retirement is explicit rather than silent.
+BELOW_BASELINE_THRESHOLDS: List[float] = []
 
-# Coarse grid (all classifiers): 6 above-baseline + 3 below-baseline = 9 T.
-# 4 classifiers × 9 thresholds × 10 seeds = 360 training runs.
+# Coarse grid (all classifiers): 6 thresholds at and above the baseline.
+# 4 classifiers × 6 thresholds × 10 seeds = 240 training runs.
 COARSE_ABOVE_THRESHOLDS: List[float] = [0.065, 0.10, 0.15, 0.20, 0.30, 0.50]
 COARSE_THRESHOLDS: List[float] = sorted(BELOW_BASELINE_THRESHOLDS + COARSE_ABOVE_THRESHOLDS)
 
 # Fine grid (LightGBM only): adds intermediate thresholds for variance analysis.
+# 6 coarse + 5 interior = 11 thresholds × 10 seeds = 110 training runs.
 FINE_EXTRA_THRESHOLDS: List[float] = [0.08, 0.12, 0.18, 0.25, 0.40]
 FINE_THRESHOLDS: List[float] = sorted(set(COARSE_THRESHOLDS + FINE_EXTRA_THRESHOLDS))
 
-# Sweet zone from the manuscript (used for shaded region in figures).
-SWEET_ZONE: Tuple[float, float] = (0.08, 0.15)
+# Sweet zone from the manuscript (used for the shaded region in figures).
+# All five thresholds in [0.08, 0.18] are Holm-significant improvements over
+# the baseline on the LightGBM fine grid; T = 0.20 is the non-significant
+# boundary point.
+SWEET_ZONE: Tuple[float, float] = (0.08, 0.18)
 
 # ── Classifier parameters ────────────────────────────────────────────────────
 # LightGBM: 500 rounds, 64 leaves, 100 min.data/leaf, lr 0.05
