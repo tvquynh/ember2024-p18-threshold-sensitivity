@@ -1,19 +1,53 @@
 # ********* *********** *** *********** ******* ** ********** ********* ********
 
 **Paper title (redacted)**: ********* *********** *** *********** ******* ** ********** ********* ********: * **************** ***** ** *********
-**Submitted to**: a peer-reviewed journal (under review)
-**Status**: This artifact is the frozen submission state. The paper
-title and dataset name are redacted while the manuscript is under
-peer review. We will publish the full title and references upon
-paper acceptance.
+**Submitted to**: a peer-reviewed journal (revision under review)
+**Release**: `jisa-revision-1` — the frozen state accompanying the first
+revision. The paper title, author list, and dataset name are redacted
+while the manuscript is under peer review; they will be restored on
+acceptance (see `.restore-on-accept/`).
 
 This repository accompanies the manuscript and contains all source code,
 configurations, and aggregated results needed to reproduce the 570
-training runs reported in the paper. The threshold grid was finalised
-at six coarse points (`{0.065, 0.10, 0.15, 0.20, 0.30, 0.50}`) plus a
-five-point interior fine grid (`{0.08, 0.12, 0.18, 0.25, 0.40}`); we
-do not sweep below the default `T_base = 0.065` because the
-training-malware distribution has only ≈1.2% of mass there.
+training runs reported in the paper. The threshold grid is six coarse
+points (`{0.065, 0.10, 0.15, 0.20, 0.30, 0.50}`) plus a five-point
+interior fine grid (`{0.08, 0.12, 0.18, 0.25, 0.40}`), i.e. 11 fine-grid
+thresholds in total; we do not sweep below the default `T_base = 0.065`
+because the training-malware distribution has only ≈1.3% of its mass
+there.
+
+## What is in this release
+
+| Path | Contents |
+|---|---|
+| `results_aggregated/*/summary.json` | Per-threshold aggregates **including the per-seed value arrays** behind every table and figure |
+| `results_aggregated/figures/fig1..fig4` | Publication figures 1–4 |
+| `revision1_analyses/figures/fig5,fig6` | Publication figures 5–6, added in this revision |
+| `results_aggregated/tables/*.csv`, `revision1_analyses/tables/*.csv` | Supporting tables |
+| `revision1_analyses/recompute_paper_stats.py` | **Authoritative** regeneration of every inferential number in the paper |
+| `revision1_analyses/recomputed_stats_revision1.json` | Its output |
+| `revision1_analyses/mechanism_analysis.py` | Retained-set composition diagnostics (figure 6) |
+| `revision1_analyses/calibration_sensitivity.py` | Calibration-robustness analysis (figure 5) |
+| `weights.py` | The eight detection-weighting formulas exactly as tabulated in the paper |
+
+### Verifying the paper's numbers in one command
+
+```bash
+python revision1_analyses/recompute_paper_stats.py
+```
+
+This reads only the stored per-seed arrays and reproduces the Friedman
+statistics, every Wilcoxon exact p-value, the Holm-Bonferroni adjustments
+at the family sizes the paper states, Cohen's *d*, and the Random Forest
+rank correlation. No model is retrained and no raw dataset is required.
+
+> **Provenance note on `results_aggregated/*/stats.json`.** Those files
+> come from an earlier aggregation pass over a larger threshold grid
+> (9 coarse / 14 fine, including thresholds below the baseline) that the
+> study later dropped. They are kept for provenance only, and their
+> `correction`, `family_size` and `k` fields do **not** describe the
+> analysis reported in the paper. Use
+> `revision1_analyses/recomputed_stats_revision1.json` instead.
 
 ---
 
