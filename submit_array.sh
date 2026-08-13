@@ -18,8 +18,8 @@ set -euo pipefail
 
 PAPER=p18_threshold_sensitivity
 # Edit the four paths below to match your cluster's shared filesystem layout.
-CODE_DIR=${CODE_DIR:-/srv/nfs/code/$PAPER}
-OUT_DIR=${OUT_DIR:-/srv/nfs/results/$PAPER}
+CODE_DIR=${CODE_DIR:-$(pwd)}
+OUT_DIR=${OUT_DIR:-$(pwd)/results/$PAPER}
 PARQUET_DIR=${PARQUET_DIR:?PARQUET_DIR must be set to the EMBER2024 parquet directory}
 SBATCH_TEMPLATE=$CODE_DIR/run_seed.sbatch
 

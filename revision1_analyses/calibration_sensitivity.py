@@ -20,7 +20,7 @@ Outputs:
   figures/fig6_calibration_sensitivity.pdf/.png two-panel figure
   tables/calibration_robustness.csv             summary table for response letter
 """
-import sys, io, json
+import os, sys, io, json
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 from pathlib import Path
@@ -35,7 +35,11 @@ TABLE_DIR = REVISION_DIR / "tables"
 FIG_DIR.mkdir(exist_ok=True)
 TABLE_DIR.mkdir(exist_ok=True)
 
-RESULTS_ROOT = Path(r"E:/phase3/publications/papers/p18_jisa_v1/results_aggregated")
+# Default to the aggregated results shipped with this repository so the script
+# runs unmodified from a fresh clone. Override with the RESULTS_ROOT environment
+# variable if you have re-run the pipeline yourself.
+RESULTS_ROOT = Path(os.environ.get(
+    "RESULTS_ROOT", REVISION_DIR.parent / "results_aggregated"))
 
 FINE_T = ["0.065", "0.080", "0.100", "0.120", "0.150", "0.180",
           "0.200", "0.250", "0.300", "0.400", "0.500"]

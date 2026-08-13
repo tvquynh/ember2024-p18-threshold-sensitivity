@@ -8,8 +8,8 @@ while the manuscript is under peer review; they will be restored on
 acceptance (see `.restore-on-accept/`).
 
 This repository accompanies the manuscript and contains all source code,
-configurations, and aggregated results needed to reproduce the 570
-training runs reported in the paper. The threshold grid is six coarse
+configurations, and aggregated results needed to reproduce the 490
+distinct training runs (570 reported cells) behind the paper. The threshold grid is six coarse
 points (`{0.065, 0.10, 0.15, 0.20, 0.30, 0.50}`) plus a five-point
 interior fine grid (`{0.08, 0.12, 0.18, 0.25, 0.40}`), i.e. 11 fine-grid
 thresholds in total; we do not sweep below the default `T_base = 0.065`
@@ -29,6 +29,7 @@ there.
 | `revision1_analyses/mechanism_analysis.py` | Retained-set composition diagnostics (figure 6) |
 | `revision1_analyses/calibration_sensitivity.py` | Calibration-robustness analysis (figure 5) |
 | `weights.py` | The eight detection-weighting formulas exactly as tabulated in the paper |
+| `audit_protocol.py` | **Corpus-agnostic** reference implementation of Algorithm 1; replays the published decision in seconds with `--from-release` |
 
 ### Verifying the paper's numbers in one command
 
@@ -89,30 +90,41 @@ The paper reports results from a 10-node SLURM cluster (master 128c +
 similar cluster:
 
 ```bash
-# 1. Stage code on shared NFS
-scp -r ./* master:/srv/nfs/code/threshold_sensitivity/
+# 1. Stage code on a filesystem visible to every node
+scp -r ./* <SUBMIT_HOST>:<CODE_DIR>/
 
 # 2. Stage parquet on each node (local SSD recommended to avoid NFS contention):
 #    <PARQUET_DIR>/dataset_{train,test,challenge}.parquet
 
 # 3. Submit the array
-ssh master
-cd /srv/nfs/code/threshold_sensitivity
-bash submit_array.sh
+ssh <SUBMIT_HOST>
+cd <CODE_DIR>
+CODE_DIR=$(pwd) bash submit_array.sh
 
-# 4. Aggregate when all 10 seeds done
+# 4. Aggregate when all 10 seeds are done
 python aggregate.py \
-    --seeds_dir /srv/nfs/results/threshold_sensitivity \
-    --output_dir /srv/nfs/results/threshold_sensitivity/aggregated
+    --seeds_dir <RESULTS_DIR>/threshold_sensitivity \
+    --output_dir <RESULTS_DIR>/threshold_sensitivity/aggregated
 ```
 
-The full pipeline trains **570 PE classifiers**:
+The full pipeline reports **570 cells** but trains **490 distinct PE
+classifiers**, because 80 configurations are shared between stages and are
+computed once:
+
 - 240 cross-classifier (4 clf × 6 T × 10 seeds)
-- 110 LightGBM fine grid (1 × 11 T × 10 seeds)
-- 100 detection-weighted (5 LightGBM + 3 XGBoost non-uniform + uniform baseline per family)
+- 110 LightGBM fine grid (1 × 11 T × 10 seeds) — of which 60 are the six
+  coarse thresholds already trained in the sweep
+- 100 detection-weighted (5 LightGBM + 3 XGBoost non-uniform + a `uniform`
+  reference arm per family) — the 20 `uniform` runs are the `T_base` sweep
+  points already trained above
 - 120 per-file-type (3 ft × 4 T × 10 seeds)
 
-Wall-clock ≈ 11 hours on the reference cluster (slowest seed dominates).
+You can confirm the reuse yourself: the per-seed metric vectors for the six
+shared LightGBM thresholds are bit-identical between
+`results_aggregated/cross_classifier/summary.json` and
+`results_aggregated/lgbm_fine/summary.json`.
+
+Wall-clock ≈ 11 hours per seed on the reference cluster (slowest seed dominates).
 
 ### Option C — Inspect aggregated results without re-running
 

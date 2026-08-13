@@ -112,8 +112,8 @@ def materialize_stage_per_run(seed_dirs: list[tuple[int, Path]],
 def parse_args():
     p = argparse.ArgumentParser()
     p.add_argument("--seeds_dir", required=True,
-                   help="Directory containing seed_<N>/ subdirs (e.g. "
-                        "/srv/nfs/results/p18_threshold_sensitivity)")
+                   help="Directory containing seed_<N>/ subdirs "
+                        "(e.g. <RESULTS_DIR>/threshold_sensitivity)")
     p.add_argument("--output_dir", required=True,
                    help="Aggregated output dir (e.g. .../aggregated)")
     p.add_argument("--require_all_seeds", type=int, default=10,

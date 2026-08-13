@@ -1,19 +1,18 @@
 # RUNBOOK — threshold-sensitivity reproducibility artifact
 
-Operational runbook for running the full experiment on the 73-core CPU server.
-Self-contained: assumes the paper folder is checked out at
-`E:\phase3\scripts\papers\p18_threshold_sensitivity\` and data lives at
-`E:\project_data\parquet_clean-week\`.
+Operational runbook for running the full experiment on a single high-core-count
+CPU server. Self-contained: set `PARQUET_DIR` to the directory holding
+`dataset_{train,test,challenge}.parquet` and run every command from the
+repository root.
 
 ---
 
 ## 1. Pre-flight (≤ 2 min)
 
-Purpose: confirm the environment is sane *before* committing 40 h of compute.
+Purpose: confirm the environment is sane *before* committing ~36 h of compute.
 
 ```bash
-# From the paper folder
-cd E:/phase3/scripts/papers/p18_threshold_sensitivity
+# From the repository root
 
 # 1a. Python + libs
 python -c "import numpy, scipy, polars, sklearn, lightgbm, xgboost; print('libs OK')"
@@ -57,7 +56,7 @@ If any of the above is missing, check `results/<stage>/run.log` — each runner 
 
 ---
 
-## 3. Full run — production (~55 h)
+## 3. Full run — production (~34-38 h)
 
 ```bash
 # Backgrounded, with logs to file. Use screen / tmux in practice.
@@ -71,30 +70,28 @@ echo $! > results/full_run.pid
 
 Time budget per stage (reference timings on a 70-core / 400 GB-RAM CPU server):
 
-| Stage                | Models | Wall clock |
-|----------------------|-------:|-----------:|
-| distributions        |      0 |    ~2 min  |
-| cross_classifier     |    360 |   ~27 h    |
-| lgbm_fine            |    140 |   ~13 h    |
-| weighting            |    100 |    ~10 h   |
-| per_type             |    120 |    ~4 h    |
-| analysis + figures   |      — |    ~1 min  |
+| Stage                | Reported cells | New fits | Wall clock |
+|----------------------|---------------:|---------:|-----------:|
+| distributions        |              0 |        0 |    ~2 min  |
+| cross_classifier     |            240 |      240 |   ~18 h    |
+| lgbm_fine            |            110 |       50 |    ~5 h    |
+| weighting            |            100 |       80 |    ~8 h    |
+| per_type             |            120 |      120 |    ~4 h    |
+| analysis + figures   |              — |        — |    ~1 min  |
 
-**Total**: ~54-58 h on a 70-core CPU server (verified empirically with first 5 LightGBM runs at ~7.5 min/model — see `results/cross_classifier/run.log`).
+**Total**: **490 distinct model fits** (570 reported cells), ~34-38 h on a 70-core CPU server. Verified empirically with the first 5 LightGBM runs at ~7.5 min/model — see `results/cross_classifier/run.log`.
 
-**Note**: cross_classifier model count includes the below-baseline thresholds (T ∈ {0.0, 0.02, 0.04}) added as a reviewer-anticipated control study.
+**Why cells > fits**: 80 configurations are shared between stages and are computed once, then reported in both places. The six coarse thresholds of the LightGBM sweep are also fine-grid points (6 x 10 seeds = 60), and the `uniform` reference arm of the weighting experiment is the T_base sweep point for LightGBM and XGBoost (2 x 10 seeds = 20). `run_all.py` reuses the earlier per-run JSON rather than refitting; you can confirm this by diffing the shared cells in `results/cross_classifier/summary.json` against `results/lgbm_fine/summary.json` — the per-seed metric vectors are bit-identical.
 
 ### Resume after partial completion
 
-If a previous full run completed only `--thresholds [0.065, 0.10, 0.15, 0.20, 0.30, 0.50]` (the pre-2026-04-25 grid), use `--resume` to add only the missing below-baseline runs:
+Re-invoke `run_all.py` with `--resume`; existing per-run JSON files are detected and skipped, so only missing configurations are trained:
 
 ```bash
 nohup python run_all.py --resume \
     --parquet_dir <PARQUET_DIR> \
-  > results/below_baseline_run.log 2>&1 &
+  > results/resume_run.log 2>&1 &
 ```
-
-Existing per-run JSON files are skipped automatically. Estimated incremental cost: **~18 h** (120 cross_classifier + 30 lgbm_fine new models).
 
 ---
 
@@ -117,7 +114,7 @@ done
 # Machine health
 top -b -n 1 | head -5
 free -h
-df -h E:
+df -h .
 ```
 
 ---

@@ -1,4 +1,5 @@
 """R1-C4 mechanism analysis: compute 4 diagnostics × 11 fine-grid thresholds
+import os
 from the raw EMBER2024 parquet + existing distributions/snapshot.json.
 
 Outputs:
@@ -34,7 +35,20 @@ TABLE_DIR = REVISION_DIR / "tables"
 FIG_DIR.mkdir(exist_ok=True)
 TABLE_DIR.mkdir(exist_ok=True)
 
-TRAIN_PARQUET = Path("E:/project_data/parquet_clean-week/ember2024_train.parquet")
+def _train_parquet() -> Path:
+    """Locate the training parquet.
+
+    Override with --train_parquet or the PARQUET_DIR environment variable;
+    otherwise look for a ``data/`` directory beside the repository root.
+    """
+    for arg in ("--train_parquet",):
+        if arg in sys.argv:
+            return Path(sys.argv[sys.argv.index(arg) + 1])
+    base = Path(os.environ.get("PARQUET_DIR", REVISION_DIR.parent / "data"))
+    return base / "dataset_train.parquet"
+
+
+TRAIN_PARQUET = _train_parquet()
 
 FINE_T = [0.065, 0.08, 0.10, 0.12, 0.15, 0.18, 0.20, 0.25, 0.30, 0.40, 0.50]
 PE_TYPES = {"win32": "Win32", "win64": "Win64", "dot_net": ".NET"}

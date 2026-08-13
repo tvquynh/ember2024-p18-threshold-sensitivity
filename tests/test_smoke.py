@@ -62,19 +62,24 @@ def test_filter_monotonic():
 
 
 def test_filter_T_zero_keeps_all():
-    """T=0 (below-baseline control): no filtering, all samples retained."""
+    """T=0 is the degenerate no-op threshold: all samples retained."""
     y = np.array([0, 0, 1, 1, 1])
     r = np.array([0.0, 0.0, 0.0, 0.05, 0.20])
     mask = filter_by_threshold(r, y, T=0.0)
     assert mask.tolist() == [True, True, True, True, True]
 
 
-def test_below_baseline_thresholds_present():
-    """Config must include below-baseline T values (T<0.065) for control study."""
+def test_threshold_grid_matches_published_design():
+    """The published sweep starts at the baseline; there is no below-baseline arm.
+
+    An exploratory below-baseline arm (T < T_base) was evaluated during
+    development and retired before publication, so the coarse grid must be
+    exactly the six thresholds reported in the paper.
+    """
     from config import COARSE_THRESHOLDS, BELOW_BASELINE_THRESHOLDS, BASELINE_T
-    assert BELOW_BASELINE_THRESHOLDS == [0.0, 0.02, 0.04]
-    assert all(t < BASELINE_T for t in BELOW_BASELINE_THRESHOLDS)
-    assert all(t in COARSE_THRESHOLDS for t in BELOW_BASELINE_THRESHOLDS)
+    assert BELOW_BASELINE_THRESHOLDS == []
+    assert COARSE_THRESHOLDS == [0.065, 0.10, 0.15, 0.20, 0.30, 0.50]
+    assert min(COARSE_THRESHOLDS) == BASELINE_T
 
 
 def test_threshold_summary_format():

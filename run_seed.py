@@ -65,7 +65,7 @@ def parse_args():
     p.add_argument("--seed", type=int, required=True,
                    help="Single seed value (e.g. 42, 123, ...)")
     p.add_argument("--output_dir", required=True,
-                   help="Per-seed output dir, e.g. /srv/nfs/results/.../seed_42")
+                   help="Per-seed output dir, e.g. <RESULTS_DIR>/seed_42")
     p.add_argument("--parquet_dir", default=PARQUET_DIR_DEFAULT)
     p.add_argument("--num_threads", type=int, default=None,
                    help="Override n_jobs for LGB/XGB/RF and torch threads")

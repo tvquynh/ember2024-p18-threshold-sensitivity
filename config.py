@@ -7,13 +7,15 @@ so prior results remain traceable.
 """
 from __future__ import annotations
 
+import os
+
 from dataclasses import dataclass, field
 from typing import Dict, List, Tuple
 
 RUN_TAG = "jisa_v2_2026_04"
 
 # ── Data ─────────────────────────────────────────────────────────────────────
-PARQUET_DIR_DEFAULT = "E:/project_data/parquet_clean-week"
+PARQUET_DIR_DEFAULT = os.environ.get("PARQUET_DIR", "./data")
 PE_FILE_TYPES: List[str] = ["win32", "win64", "dot_net"]
 
 # ── Seeds (10 fixed, published in manuscript) ────────────────────────────────

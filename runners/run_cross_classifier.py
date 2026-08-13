@@ -7,7 +7,7 @@ Manuscript Table 2 + Figure 2.
 
 Usage:
     python runners/run_cross_classifier.py \
-        --parquet_dir E:/project_data/parquet_clean-week \
+        --parquet_dir <PARQUET_DIR> \
         --output_dir  results/cross_classifier
 """
 from __future__ import annotations
