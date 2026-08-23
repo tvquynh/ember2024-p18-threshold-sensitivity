@@ -2,10 +2,11 @@
 
 **Paper title (redacted)**: ********* *********** *** *********** ******* ** ********** ********* ********: * **************** ***** ** *********
 **Submitted to**: a peer-reviewed journal (revision under review)
-**Release**: `jisa-revision-1` — the frozen state accompanying the first
-revision. The paper title, author list, and dataset name are redacted
-while the manuscript is under peer review; they will be restored on
-acceptance (see `.restore-on-accept/`).
+**Release**: `jisa-revision-1.1` — the frozen state accompanying the first
+revision. It supersedes `jisa-revision-1`, which shipped a stale test
+assertion and omitted `audit_protocol.py`. The paper title, author list, and
+dataset name are redacted while the manuscript is under peer review; they will
+be restored on acceptance (see `.restore-on-accept/`).
 
 This repository accompanies the manuscript and contains all source code,
 configurations, and aggregated results needed to reproduce the 490
