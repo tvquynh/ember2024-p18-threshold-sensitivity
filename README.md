@@ -1,14 +1,16 @@
 # Reproducibility artifact — VirusTotal consensus-threshold sensitivity on a static-PE malware benchmark
 
-**Status**: this repository accompanies a manuscript under peer review at a
-peer-reviewed journal. The paper title and author list are withheld until
-acceptance, at which point they will be added here, to `CITATION.cff` and to
-`RUNBOOK.md`. Everything needed to reproduce the results is already present.
+**Status**: this repository accompanies a manuscript under peer review. The
+paper title and its full reference will be added on acceptance; authorship, the
+release version and the archival DOI are in `CITATION.cff`. Everything needed to
+reproduce the reported results is already here.
+**Archive**: [10.5281/zenodo.19868109](https://doi.org/10.5281/zenodo.19868109)
+(concept DOI — always resolves to the latest version).
 **Release**: `jisa-revision-1.1` — the frozen state accompanying the first
 revision. It supersedes `jisa-revision-1`, which shipped a stale test
 assertion and omitted `audit_protocol.py`. The paper title, author list, and
 dataset name are withheld while the manuscript is under peer review and will
-be added on acceptance.
+be added on acceptance. Authorship is given in `CITATION.cff`.
 
 This repository accompanies the manuscript and contains all source code,
 configurations, and aggregated results needed to reproduce the 600
@@ -237,10 +239,11 @@ MIT License — see `LICENSE` file.
 
 ## Restoration on paper acceptance
 
-When the paper is accepted for publication, the following will be restored
-to this README, to `CITATION.cff` and to `RUNBOOK.md`:
+When the paper is accepted for publication, the following will be added to
+this README, to `CITATION.cff` and to `RUNBOOK.md`:
 
-- Full paper title
-- Author list
+- Full paper title and its bibliographic reference
 - Dataset name and reference
 - Funder acknowledgement
+
+Authorship is already recorded in `CITATION.cff` and in the Zenodo deposit.
