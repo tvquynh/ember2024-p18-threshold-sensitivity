@@ -6,7 +6,7 @@ release version and the archival DOI are in `CITATION.cff`. Everything needed to
 reproduce the reported results is already here.
 **Archive**: [10.5281/zenodo.19868109](https://doi.org/10.5281/zenodo.19868109)
 (concept DOI — always resolves to the latest version).
-**Release**: `jisa-revision-1.1` — the frozen state accompanying the first
+**Release**: `jisa-revision-1.2` — the frozen state accompanying the first
 revision. It supersedes `jisa-revision-1`, which shipped a stale test
 assertion and omitted `audit_protocol.py`. The paper title, author list, and
 dataset name are withheld while the manuscript is under peer review and will
