@@ -4,7 +4,7 @@ from the raw EMBER2024 parquet + existing distributions/snapshot.json.
 
 Outputs:
   mechanism_analysis.json           (raw numbers for the paper text)
-  figures/fig5_mechanism.pdf/.png   (2x2 panel diagnostic)
+  figures/fig6_mechanism.pdf/.png   (2x2 panel diagnostic)
   tables/mechanism_summary.csv      (6 T × 4 diagnostics for response letter)
 
 Diagnostics computed at each T in the fine grid:
@@ -241,7 +241,7 @@ def main():
         encoding="utf-8",
     )
     print(f"[json] wrote {REVISION_DIR / 'mechanism_analysis.json'}")
-    make_figure_5(diagnostics, mal, FIG_DIR / "fig5_mechanism.pdf")
+    make_figure_5(diagnostics, mal, FIG_DIR / "fig6_mechanism.pdf")
     write_summary_table(diagnostics, TABLE_DIR / "mechanism_summary.csv")
 
 

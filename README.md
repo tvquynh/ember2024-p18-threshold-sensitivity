@@ -5,12 +5,14 @@
 **Release**: `jisa-revision-1.1` — the frozen state accompanying the first
 revision. It supersedes `jisa-revision-1`, which shipped a stale test
 assertion and omitted `audit_protocol.py`. The paper title, author list, and
-dataset name are redacted while the manuscript is under peer review; they will
-be restored on acceptance (see `.restore-on-accept/`).
+dataset name are redacted while the manuscript is under peer review and will
+be restored on acceptance.
 
 This repository accompanies the manuscript and contains all source code,
-configurations, and aggregated results needed to reproduce the 490
-distinct training runs (570 reported cells) behind the paper. The threshold grid is six coarse
+configurations, and aggregated results needed to reproduce the 600
+distinct training runs (680 reported cells) behind the paper: 490 fits in
+the main study (570 cells, 80 configurations shared and computed once) plus
+110 control fits added during revision (`revision2_runs/`). The threshold grid is six coarse
 points (`{0.065, 0.10, 0.15, 0.20, 0.30, 0.50}`) plus a five-point
 interior fine grid (`{0.08, 0.12, 0.18, 0.25, 0.40}`), i.e. 11 fine-grid
 thresholds in total; we do not sweep below the default `T_base = 0.065`
@@ -120,6 +122,12 @@ computed once:
   points already trained above
 - 120 per-file-type (3 ft × 4 T × 10 seeds)
 
+On top of those 490, the revision adds 110 control fits that share no
+configuration with the sweep and are reported separately in
+`revision2_runs/`: 60 for the coarse sweep repeated under the dataset
+authors' released `lgbm_config.json`, 40 for the matched-size control, and
+10 reproducing the authors' published pipeline end to end.
+
 You can confirm the reuse yourself: the per-seed metric vectors for the six
 shared LightGBM thresholds are bit-identical between
 `results_aggregated/cross_classifier/summary.json` and
@@ -227,13 +235,10 @@ MIT License — see `LICENSE` file.
 
 ## Restoration on paper acceptance
 
-When the paper is accepted for publication, the following will be
-restored from `.restore-on-accept/`:
+When the paper is accepted for publication, the following will be restored
+to this README, to `CITATION.cff` and to `RUNBOOK.md`:
 
 - Full paper title
 - Author list
 - Dataset name and reference
 - Funder acknowledgement
-
-The backup of the original (pre-redaction) `README.md`, `CITATION.cff`,
-and `RUNBOOK.md` is preserved in `.restore-on-accept/` for that purpose.

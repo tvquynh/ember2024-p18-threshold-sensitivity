@@ -79,7 +79,7 @@ Time budget per stage (reference timings on a 70-core / 400 GB-RAM CPU server):
 | per_type             |            120 |      120 |    ~4 h    |
 | analysis + figures   |              — |        — |    ~1 min  |
 
-**Total**: **490 distinct model fits** (570 reported cells), ~34-38 h on a 70-core CPU server. Verified empirically with the first 5 LightGBM runs at ~7.5 min/model — see `results/cross_classifier/run.log`.
+**Total**: **490 distinct model fits** (570 reported cells) for the main study, ~34-38 h on a 70-core CPU server. The revision adds a further **110 control fits** (`revision2_runs/`, ~17 h on a 60-core workstation), bringing the released total to **600 fits / 680 reported cells**. Verified empirically with the first 5 LightGBM runs at ~7.5 min/model — see `results/cross_classifier/run.log`.
 
 **Why cells > fits**: 80 configurations are shared between stages and are computed once, then reported in both places. The six coarse thresholds of the LightGBM sweep are also fine-grid points (6 x 10 seeds = 60), and the `uniform` reference arm of the weighting experiment is the T_base sweep point for LightGBM and XGBoost (2 x 10 seeds = 20). `run_all.py` reuses the earlier per-run JSON rather than refitting; you can confirm this by diffing the shared cells in `results/cross_classifier/summary.json` against `results/lgbm_fine/summary.json` — the per-seed metric vectors are bit-identical.
 

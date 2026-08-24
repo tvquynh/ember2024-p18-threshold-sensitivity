@@ -34,3 +34,6 @@ nohup.out
 !results/**/stats.json
 !results/figures/
 !results/tables/
+
+# Pre-redaction copies, restored by hand on acceptance
+.restore-on-accept/

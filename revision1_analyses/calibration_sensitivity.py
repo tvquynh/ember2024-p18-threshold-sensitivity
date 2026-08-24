@@ -17,7 +17,7 @@ identification.
 
 Outputs:
   calibration_sensitivity.json                  raw table
-  figures/fig6_calibration_sensitivity.pdf/.png two-panel figure
+  figures/fig5_calibration_sensitivity.pdf/.png two-panel figure
   tables/calibration_robustness.csv             summary table for response letter
 """
 import os, sys, io, json
@@ -210,7 +210,7 @@ def main():
     (REVISION_DIR / "calibration_sensitivity.json").write_text(
         json.dumps({"run_tag": "revision1", "rows": rows}, indent=2), encoding="utf-8")
     print(f"[json] wrote calibration_sensitivity.json")
-    make_figure_6(rows, FIG_DIR / "fig6_calibration_sensitivity.pdf")
+    make_figure_6(rows, FIG_DIR / "fig5_calibration_sensitivity.pdf")
     write_csv(rows, TABLE_DIR / "calibration_robustness.csv")
 
     # Consistency check for response letter
