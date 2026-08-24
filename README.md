@@ -1,12 +1,14 @@
-# ********* *********** *** *********** ******* ** ********** ********* ********
+# Reproducibility artifact — VirusTotal consensus-threshold sensitivity on a static-PE malware benchmark
 
-**Paper title (redacted)**: ********* *********** *** *********** ******* ** ********** ********* ********: * **************** ***** ** *********
-**Submitted to**: a peer-reviewed journal (revision under review)
+**Status**: this repository accompanies a manuscript under peer review at a
+peer-reviewed journal. The paper title and author list are withheld until
+acceptance, at which point they will be added here, to `CITATION.cff` and to
+`RUNBOOK.md`. Everything needed to reproduce the results is already present.
 **Release**: `jisa-revision-1.1` — the frozen state accompanying the first
 revision. It supersedes `jisa-revision-1`, which shipped a stale test
 assertion and omitted `audit_protocol.py`. The paper title, author list, and
-dataset name are redacted while the manuscript is under peer review and will
-be restored on acceptance.
+dataset name are withheld while the manuscript is under peer review and will
+be added on acceptance.
 
 This repository accompanies the manuscript and contains all source code,
 configurations, and aggregated results needed to reproduce the 600
