@@ -36,7 +36,7 @@ there.
 | `revision1_analyses/mechanism_analysis.py` | Retained-set composition diagnostics (figure 6) |
 | `revision1_analyses/calibration_sensitivity.py` | Calibration-robustness analysis (figure 5) |
 | `weights.py` | The eight detection-weighting formulas exactly as tabulated in the paper |
-| `audit_protocol.py` | **Corpus-agnostic** reference implementation of Algorithm 1; replays the published decision in seconds with `--from-release` |
+| `audit_protocol.py` | **Corpus-agnostic** reference implementation of Algorithm 1; replays the published decision in seconds with `--from-release results_aggregated` |
 
 ### Verifying the paper's numbers in one command
 

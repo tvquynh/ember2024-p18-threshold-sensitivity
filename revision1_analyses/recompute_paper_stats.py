@@ -87,7 +87,7 @@ out["friedman_fine"] = {"classifier": "LightGBM", "chi2": float(chi2),
                         "p": float(p), "k": len(FINE), "n": 10}
 print(f"\nFriedman, LightGBM fine grid (k = {len(FINE)}, n = 10): chi2 = {chi2:.3f}  p = {p:.3e}")
 
-# ---------- Fine-grid pairwise vs baseline (Table 3) ----------
+# ---------- Fine-grid pairwise vs baseline (Table 6, tab:sweet_zone) ----------
 base = vals(fg["LightGBM"]["0.065"])
 nb = [T for T in FINE if T != "0.065"]
 raw, rows = [], []
@@ -105,17 +105,17 @@ for r, a in zip(rows, adj):
 out["fine_grid_vs_baseline"] = {
     "baseline_mean_pct": float(base.mean()), "baseline_std_pct": float(base.std(ddof=1)),
     "family_size": len(nb), "exact_wilcoxon_floor": 2 / 2 ** 10, "rows": rows}
-print(f"\nTable 3 (family size {len(nb)}, exact-Wilcoxon floor {2/2**10:.5f}):")
+print(f"\nTable 6 / tab:sweet_zone (family size {len(nb)}, exact-Wilcoxon floor {2/2**10:.5f}):")
 print(f"  baseline T=0.065: mean {base.mean():.2f}%  std {base.std(ddof=1):.3f}pp")
 for r in rows:
     print(f"  T={r['T']:.3f}  mean {r['mean_pct']:6.2f}  std {r['std_pct']:.2f}  "
           f"delta {r['delta_pp']:+6.2f}  d {r['cohens_d']:+6.2f}  "
           f"p_raw {r['p_raw']:.4f}  p_holm {r['p_holm']:.4f}{' *' if r['holm_significant'] else ''}")
 
-# ---------- Weighting families (Table 4) ----------
+# ---------- Weighting families (Table 8, tab:weighting) ----------
 wt = json.loads((RES / "weighting" / "summary.json").read_text())
 out["weighting"] = {}
-print("\nTable 4 (per-classifier Holm families):")
+print("\nTable 8 / tab:weighting (per-classifier Holm families):")
 for clf in ["LightGBM", "XGBoost"]:
     if clf not in wt:
         continue
