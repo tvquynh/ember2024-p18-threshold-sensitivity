@@ -1,16 +1,15 @@
 # Reproducibility artifact — VirusTotal consensus-threshold sensitivity on a static-PE malware benchmark
 
-**Status**: this repository accompanies a manuscript under peer review. The
-paper title and its full reference will be added on acceptance; authorship, the
-release version and the archival DOI are in `CITATION.cff`. Everything needed to
-reproduce the reported results is already here.
+**Paper**: Trong-Thua Huynh, Van-Quynh Trinh, De-Thu Huynh, Ngoc-Hieu Le.
+"Auditing VirusTotal consensus thresholds in malware benchmarks: A reproducible
+security-measurement study on EMBER2024." *Journal of Information Security and
+Applications* **103** (December 2026), 104659.
+[10.1016/j.jisa.2026.104659](https://doi.org/10.1016/j.jisa.2026.104659)
 **Archive**: [10.5281/zenodo.19868109](https://doi.org/10.5281/zenodo.19868109)
 (concept DOI — always resolves to the latest version).
-**Release**: `jisa-revision-1.2` — the frozen state accompanying the first
+**Release**: `jisa-revision-1.2` — the frozen state accompanying the accepted
 revision. It supersedes `jisa-revision-1`, which shipped a stale test
-assertion and omitted `audit_protocol.py`. The paper title, author list, and
-dataset name are withheld while the manuscript is under peer review and will
-be added on acceptance. Authorship is given in `CITATION.cff`.
+assertion and omitted `audit_protocol.py`.
 
 This repository accompanies the manuscript and contains all source code,
 configurations, and aggregated results needed to reproduce the 600
@@ -211,10 +210,13 @@ The CSVs are the same numbers used in the paper's tables.
 
 ## Dataset
 
-The dataset name and reference are redacted while the manuscript is under
-peer review. Reviewers and editors have access to the full citation
-through the manuscript's Data Availability section. The dataset is
-publicly available; details will be added here upon paper acceptance.
+The experiments use the **EMBER2024** benchmark:
+
+> R. J. Joyce, B. Miller, N. Roth, A. Zak, A. Zaresky-Williams, H. S. Anderson,
+> et al. "EMBER2024 — a benchmark dataset for holistic evaluation of malware
+> classifiers." *31st ACM SIGKDD Conference on Knowledge Discovery and Data
+> Mining*, Toronto, Canada, 2025, pp. 5516–5526.
+> <https://github.com/FutureComputing4AI/EMBER2024>
 
 Our pipeline expects three Parquet files in a single directory:
 - `dataset_train.parquet`
@@ -222,14 +224,20 @@ Our pipeline expects three Parquet files in a single directory:
 - `dataset_challenge.parquet` (evasive malware split)
 
 We do not redistribute the dataset in this repository; please obtain it
-from the original dataset authors (see manuscript references).
+from the original dataset authors at the URL above.
 
 ---
 
 ## Authorship
 
-The author list is redacted while the manuscript is under peer review.
-Full author information will be added here upon paper acceptance.
+| Author | Affiliation | ORCID |
+|---|---|---|
+| Trong-Thua Huynh | Posts and Telecommunications Institute of Technology, Ho Chi Minh City, Vietnam | [0000-0003-3934-1067](https://orcid.org/0000-0003-3934-1067) |
+| Van-Quynh Trinh *(corresponding author)* | Posts and Telecommunications Institute of Technology, Ho Chi Minh City, Vietnam | [0009-0006-0514-6123](https://orcid.org/0009-0006-0514-6123) |
+| De-Thu Huynh | The Saigon International University, Ho Chi Minh City, Vietnam | [0000-0002-1227-0281](https://orcid.org/0000-0002-1227-0281) |
+| Ngoc-Hieu Le | Posts and Telecommunications Institute of Technology, Ho Chi Minh City, Vietnam | [0009-0005-4869-9003](https://orcid.org/0009-0005-4869-9003) |
+
+**Funding**: Posts and Telecommunications Institute of Technology (PTIT), Vietnam.
 
 ## License
 
@@ -237,13 +245,21 @@ MIT License — see `LICENSE` file.
 
 ---
 
-## Restoration on paper acceptance
+## Citation
 
-When the paper is accepted for publication, the following will be added to
-this README, to `CITATION.cff` and to `RUNBOOK.md`:
+```bibtex
+@article{huynh2026auditing,
+  author  = {Huynh, Trong-Thua and Trinh, Van-Quynh and Huynh, De-Thu and Le, Ngoc-Hieu},
+  title   = {Auditing {VirusTotal} Consensus Thresholds in Malware Benchmarks:
+             A Reproducible Security-Measurement Study on {EMBER2024}},
+  journal = {Journal of Information Security and Applications},
+  volume  = {103},
+  pages   = {104659},
+  year    = {2026},
+  doi     = {10.1016/j.jisa.2026.104659}
+}
+```
 
-- Full paper title and its bibliographic reference
-- Dataset name and reference
-- Funder acknowledgement
-
-Authorship is already recorded in `CITATION.cff` and in the Zenodo deposit.
+To cite this artifact rather than the paper, use the Zenodo concept DOI
+[10.5281/zenodo.19868109](https://doi.org/10.5281/zenodo.19868109) or the
+metadata in `CITATION.cff`.

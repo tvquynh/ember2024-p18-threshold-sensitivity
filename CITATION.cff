@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it using the metadata in this file. The accompanying paper is under peer review; its title and full reference will be added on acceptance."
+message: "If you use this software, please cite the accompanying paper listed under preferred-citation."
 type: software
 title: "Reproducibility artifact — VirusTotal consensus-threshold sensitivity on a static-PE malware benchmark"
 version: "jisa-revision-1.2"
@@ -19,6 +19,7 @@ authors:
     affiliation: "The Saigon International University, Ho Chi Minh City, Vietnam"
   - given-names: "Ngoc-Hieu"
     family-names: "Le"
+    orcid: "https://orcid.org/0009-0005-4869-9003"
     affiliation: "Posts and Telecommunications Institute of Technology, Ho Chi Minh City, Vietnam"
 repository-code: "https://github.com/tvquynh/ember2024-p18-threshold-sensitivity"
 license: MIT
@@ -32,3 +33,29 @@ keywords:
   - VirusTotal consensus labeling
   - threshold sensitivity
   - calibration
+preferred-citation:
+  type: article
+  title: "Auditing VirusTotal consensus thresholds in malware benchmarks: A reproducible security-measurement study on EMBER2024"
+  authors:
+    - given-names: "Trong-Thua"
+      family-names: "Huynh"
+      orcid: "https://orcid.org/0000-0003-3934-1067"
+    - given-names: "Van-Quynh"
+      family-names: "Trinh"
+      orcid: "https://orcid.org/0009-0006-0514-6123"
+    - given-names: "De-Thu"
+      family-names: "Huynh"
+      orcid: "https://orcid.org/0000-0002-1227-0281"
+    - given-names: "Ngoc-Hieu"
+      family-names: "Le"
+      orcid: "https://orcid.org/0009-0005-4869-9003"
+  journal: "Journal of Information Security and Applications"
+  volume: 103
+  start: 104659
+  year: 2026
+  month: 12
+  issn: "2214-2126"
+  publisher:
+    name: "Elsevier"
+  doi: "10.1016/j.jisa.2026.104659"
+  url: "https://doi.org/10.1016/j.jisa.2026.104659"
